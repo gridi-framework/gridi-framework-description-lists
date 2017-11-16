@@ -5,14 +5,72 @@ dl, dt, dd {
 }
 
 dl {
-    @include include-element-margin($dl-margin-top, $dl-margin-bottom, $dl-margin-left, $dl-margin-right, $dl-margin-for-screens);
+    @include margin-shorthand-with-screens-support((
+        top: $dl-margin-top,
+        bottom: $dl-margin-bottom,
+        left: $dl-margin-left,
+        right: $dl-margin-right
+    ), $dl-margin-for-screens);
+    @include dl-extra-style();
+}
+
+dt, dd {
+    @if (
+        $dt-margin-top == $dd-margin-top and
+        $dt-margin-bottom == $dd-margin-bottom and
+        $dt-margin-left == $dd-margin-left and
+        $dt-margin-right == $dd-margin-right
+    ) {
+        @include margin-shorthand((
+            top: $dt-margin-top,
+            bottom: $dt-margin-bottom,
+            left: $dt-margin-left,
+            right: $dt-margin-right
+        ));
+    }
+    @if $dt-margin-for-screens == $dd-margin-for-screens {
+        @include margin-shorthand-with-screens-support((), $dt-margin-for-screens);
+    }
+    @include dt-dd-extra-style();
 }
 
 dt {
-    margin: $dt-margin;
-    font-weight: bold;
+    @if (
+        $dt-margin-top != $dd-margin-top or
+        $dt-margin-bottom != $dd-margin-bottom or
+        $dt-margin-left != $dd-margin-left or
+        $dt-margin-right != $dd-margin-right
+    ) {
+        @include margin-shorthand((
+            top: $dt-margin-top,
+            bottom: $dt-margin-bottom,
+            left: $dt-margin-left,
+            right: $dt-margin-right
+        ));
+    }
+    @if $dt-margin-for-screens != $dd-margin-for-screens {
+        @include margin-shorthand-with-screens-support((), $dt-margin-for-screens);
+    }
+    font-weight: $dt-font-weight;
+    @include dt-extra-style();
 }
 
 dd {
-    margin-bottom: $dd-margin;
+    @if (
+        $dt-margin-top != $dd-margin-top or
+        $dt-margin-bottom != $dd-margin-bottom or
+        $dt-margin-left != $dd-margin-left or
+        $dt-margin-right != $dd-margin-right
+    ) {
+        @include margin-shorthand((
+            top: $dd-margin-top,
+            bottom: $dd-margin-bottom,
+            left: $dd-margin-left,
+            right: $dd-margin-right
+        ));
+    }
+    @if $dt-margin-for-screens != $dd-margin-for-screens {
+        @include margin-shorthand-with-screens-support((), $dd-margin-for-screens);
+    }
+    @include dd-extra-style();
 }

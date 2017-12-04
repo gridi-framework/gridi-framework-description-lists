@@ -4,10 +4,10 @@ $dl-margin-bottom: $elements-margin-bottom !default;
 $dl-margin-left: $elements-margin-left !default;
 $dl-margin-right: $elements-margin-right !default;
 $dl-margin-for-screens: $elements-margin-for-screens !default;
-@mixin dl-extra-style() {}
+//@mixin dl-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //DT DD
-@mixin dt-dd-extra-style() {}
+//@mixin dt-dd-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //DT
 //Margins
@@ -17,7 +17,7 @@ $dt-margin-left: $list-item-elements-margin-left !default;
 $dt-margin-right: $list-item-elements-margin-right !default;
 $dt-margin-for-screens: $list-item-elements-margin-for-screens !default;
 $dt-font-weight: $bold-elements-font-weight;
-@mixin dt-extra-style() {}
+//@mixin dt-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //DD
 //Margins
@@ -26,4 +26,4 @@ $dd-margin-bottom: $list-item-elements-margin-bottom !default;
 $dd-margin-left: $list-item-elements-margin-left !default;
 $dd-margin-right: $list-item-elements-margin-right !default;
 $dd-margin-for-screens: $list-item-elements-margin-for-screens !default;
-@mixin dd-extra-style() {}
+//@mixin dd-extra-style() {} //Create this mixin before import module when you want add some special style for element

@@ -11,7 +11,9 @@ dl {
         left: $dl-margin-left,
         right: $dl-margin-right
     ), $dl-margin-for-screens);
-    @include dl-extra-style();
+    @if mixin-exists(dl-extra-style) {
+        @include dl-extra-style();
+    }
 }
 
 dt, dd {
@@ -31,7 +33,9 @@ dt, dd {
     @if $dt-margin-for-screens == $dd-margin-for-screens {
         @include margin-shorthand-with-screens-support((), $dt-margin-for-screens);
     }
-    @include dt-dd-extra-style();
+    @if mixin-exists(dt-dd-extra-style) {
+        @include dt-dd-extra-style();
+    }
 }
 
 dt {
@@ -52,7 +56,9 @@ dt {
         @include margin-shorthand-with-screens-support((), $dt-margin-for-screens);
     }
     font-weight: $dt-font-weight;
-    @include dt-extra-style();
+    @if mixin-exists(dt-extra-style) {
+        @include dt-extra-style();
+    }
 }
 
 dd {
@@ -72,5 +78,7 @@ dd {
     @if $dt-margin-for-screens != $dd-margin-for-screens {
         @include margin-shorthand-with-screens-support((), $dd-margin-for-screens);
     }
-    @include dd-extra-style();
+    @if mixin-exists(dd-extra-style) {
+        @include dd-extra-style();
+    }
 }
